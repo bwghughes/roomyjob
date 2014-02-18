@@ -5,7 +5,7 @@ import requests
 
 def send_heartbeat(device_id):
     url = "https://roomy.firebaseio.com/{}/heartbeat/".format(device_id)
-    response = requests.patch(url, data={'device': device_id})
+    response = requests.patch(url, data={'device': device_id}, timeout=3)
     return response
 
 
@@ -14,5 +14,5 @@ def send_event(device_id, image):
     response = requests.post(url, data={'device': device_id,
                                         'image': 'https://roomy-pics.s3.com/'
                                         .format(image),
-                                        'timestamp': 123456})
+                                        'timestamp': 123456}, timeout=3)
     return response

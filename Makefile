@@ -33,9 +33,7 @@ test-all:
 	tox
 
 coverage:
-	coverage run --source roomyjob setup.py test
-	coverage report -m
-	coverage html
+	py.test --cov-report html --cov-report xml --cov-report annotate --cov roomyjob tests
 	open htmlcov/index.html
 
 docs:
@@ -52,3 +50,6 @@ release: clean
 sdist: clean
 	python setup.py sdist
 	ls -l dist
+
+test:
+	py.test
