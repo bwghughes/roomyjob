@@ -39,4 +39,3 @@ def test_we_can_post_a_valid_event():
 
     response = send_event(device_id, image_url)
     assert response.status_code == 200
-
