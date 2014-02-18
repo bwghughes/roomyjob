@@ -29,6 +29,9 @@ lint:
 test:
 	python setup.py test
 
+dev:
+	python setup.py develop
+
 test-all:
 	tox
 

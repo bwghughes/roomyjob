@@ -21,7 +21,7 @@ def test_heartbeat_returns_ok_on_valid_body():
                            body=json.dumps({"last_seen": 12345678}),
                            content_type="application/json")
 
-    response = send_heartbeat("roomyTest")
+    response = send_heartbeat("roomyTest", 3)
     assert response.status_code == 200
     assert response.json() == {"last_seen": 12345678}
 
@@ -37,5 +37,5 @@ def test_we_can_post_a_valid_event():
                                             "timestamp": 123456567}),
                            content_type="application/json")
 
-    response = send_event(device_id, image_url)
+    response = send_event(device_id, image_url, 3)
     assert response.status_code == 200
