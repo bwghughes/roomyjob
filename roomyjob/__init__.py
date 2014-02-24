@@ -25,11 +25,15 @@ __version__ = '0.0.1'
 from roomyjob import send_heartbeat, send_event, InvalidImageException
 
 __all__ = ['send_heartbeat', 'send_event', 'InvalidImageException']
+ROOT_DEVICE_URL = "https://roomy.firebaseio.com/device"
 
 
-def dispatch(arguments, *args, **kwargs):
+def dispatch(arguments):
     if arguments.get('heartbeat'):
         send_heartbeat(arguments.get('--device'),
+                       float(arguments.get('--timeout')))
+    elif arguments.get('event'):
+        send_event(ROOT_DEVICE_URL, arguments.get('--device'),
                        float(arguments.get('--timeout')))
 
 

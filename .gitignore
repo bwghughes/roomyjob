@@ -27,7 +27,7 @@ coverage.xml
 htmlcov
 .tox
 nosetests.xml
-
+*,cover
 # Translations
 *.mo
 
@@ -42,3 +42,11 @@ output/*/index.html
 
 # Sphinx
 docs/_build
+
+*.py,cover
+
+*.py,cover
+
+*.py,cover
+
+*.py,cover
