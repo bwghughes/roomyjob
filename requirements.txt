@@ -10,7 +10,6 @@ pytest-cov==1.6
 python-dateutil==2.2
 python-termstyle==0.1.10
 requests==2.2.1
--e git+https://github.com/bwghughes/roomyjob.git@accad1aa6147ede6ba599714084369d2e67fd91d#egg=roomyjob-master
 six==1.5.2
 urllib3==1.7.1
 wsgiref==0.1.2
