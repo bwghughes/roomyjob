@@ -1,0 +1,16 @@
+cov-core==1.7
+coverage==3.7.1
+docopt==0.6.1
+httpretty==0.8.0
+mock==1.0.1
+nose==1.3.0
+py==1.4.20
+pytest==2.5.2
+pytest-cov==1.6
+python-dateutil==2.2
+python-termstyle==0.1.10
+requests==2.2.1
+-e git+https://github.com/bwghughes/roomyjob.git@accad1aa6147ede6ba599714084369d2e67fd91d#egg=roomyjob-master
+six==1.5.2
+urllib3==1.7.1
+wsgiref==0.1.2

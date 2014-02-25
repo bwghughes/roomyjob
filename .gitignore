@@ -52,3 +52,5 @@ docs/_build
 *.py,cover
 
 *.py,cover
+
+roomyjob/__init__.py,cover
