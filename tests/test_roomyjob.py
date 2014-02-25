@@ -78,6 +78,3 @@ def test_we_error_on_heartbeat_patch_connection_timeout():
 
     with raises(requests.exceptions.Timeout):
         send_heartbeat(ROOT_DEVICE_URL, "test-device", 0)
-
-
-

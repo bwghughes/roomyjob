@@ -34,14 +34,12 @@ def dispatch(arguments):
                        float(arguments.get('--timeout')))
     elif arguments.get('event'):
         send_event(ROOT_DEVICE_URL, arguments.get('--device'),
-                       float(arguments.get('--timeout')))
+                   float(arguments.get('--timeout')))
 
 
 def main():
     from docopt import docopt
-    arguments = docopt(__doc__, version='0.1rc')
-    print arguments
-    dispatch(arguments)
+    dispatch(docopt(__doc__, version='0.1rc'))
 
 
 if __name__ == '__main__':

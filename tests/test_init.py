@@ -27,14 +27,6 @@ def test_dispatch_calls_heartbeat():
         mock_send_heartbeat.assert_called_once
 
 
-def test_defaults():
-    with patch.object(roomyjob, 'send_heartbeat') as mock_send_heartbeat:
-        arguments = {'--device': 'roomy-test', 'heartbeat': True}
-        dispatch(arguments)
-        assert arguments.get('--timeout') == 3
-        mock_send_heartbeat.assert_called_once
-
-
 def test_dispatch_calls_send_event():
     with patch.object(roomyjob, 'send_event') as mock_send_event:
         arguments = {'--device': 'roomy-test', 'event': True,
