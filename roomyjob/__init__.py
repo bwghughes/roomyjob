@@ -30,11 +30,12 @@ ROOT_DEVICE_URL = "https://roomy.firebaseio.com/device"
 
 def dispatch(arguments):
     if arguments.get('heartbeat'):
-        send_heartbeat(arguments.get('--device'),
+        print send_heartbeat(ROOT_DEVICE_URL, arguments.get('--device'),
                        float(arguments.get('--timeout')))
     elif arguments.get('event'):
-        send_event(ROOT_DEVICE_URL, arguments.get('--device'),
-                   float(arguments.get('--timeout')))
+        print send_event(ROOT_DEVICE_URL, arguments.get('--device'),
+                         arguments.get('--url'),
+                         float(arguments.get('--timeout')))
 
 
 def main():

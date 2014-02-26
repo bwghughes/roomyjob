@@ -22,7 +22,7 @@ TEST_DEVICE = "test-device"
 @httpretty.activate
 def test_heartbeat_returns_ok_on_valid_body():
     httpretty.register_uri(httpretty.PATCH,
-                           "{}/{}/heartbeat/".format(ROOT_DEVICE_URL,
+                           "{}/{}/last-seen.json".format(ROOT_DEVICE_URL,
                                                      TEST_DEVICE),
                            body=json.dumps({"last_seen": 12345678}),
                            content_type="application/json")
@@ -36,7 +36,8 @@ def test_heartbeat_returns_ok_on_valid_body():
 def test_we_can_post_a_valid_event():
     image_url = "https://roomy-pics-blah.com/1.jpg"
     httpretty.register_uri(httpretty.POST,
-                           "{}/{}/events/".format(ROOT_DEVICE_URL, TEST_DEVICE),
+                           "{}/{}/events.json".format(ROOT_DEVICE_URL,
+                                                      TEST_DEVICE),
                            body=json.dumps({"image": image_url,
                                             "timestamp": 123456567}),
                            content_type="application/json")
