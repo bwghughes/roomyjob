@@ -20,7 +20,8 @@ def send_heartbeat(root_url, device_id=None, timeout=3):
         response = requests.patch(url, data=json.dumps({'ts': time.time()}),
                                   timeout=timeout, headers=HEADERS)
         return response
-    except requests.exceptions.Timeout, e:
+    except (requests.exceptions.Timeout, requests.exceptions.ConnectionError),\
+            e:
         logging.fatal("Cannot connect to {}".format(url))
         raise e
 
@@ -36,7 +37,8 @@ def send_event(root_url, device_id, image_url, timeout=3):
                                  'timestamp': time.time()}),
                                  timeout=timeout, headers=HEADERS)
         return response
-    except (InvalidImageException, requests.exceptions.Timeout), e:
+    except (InvalidImageException, requests.exceptions.Timeout,
+            requests.exceptions.ConnectionError), e:
         if isinstance(e, requests.exceptions.Timeout):
             logging.fatal("Cannot connect to {}".format(url))
             raise e
