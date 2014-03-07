@@ -22,7 +22,7 @@ Options:
 
 __author__ = 'Ben Hughes'
 __email__ = 'bwghughes@gmail.com'
-__version__ = '0.0.3'
+__version__ = '0.0.6'
 
 from roomyjob import send_heartbeat, send_event, InvalidImageException
 
@@ -42,7 +42,7 @@ def dispatch(arguments):
 
 def main():
     from docopt import docopt
-    dispatch(docopt(__doc__, version='0.1rc'))
+    dispatch(docopt(__doc__, version=__version__))
 
 
 if __name__ == '__main__':
