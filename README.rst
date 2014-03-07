@@ -4,7 +4,7 @@ roomyjob
 
 .. image:: https://badge.fury.io/py/roomyjob.png
     :target: http://badge.fury.io/py/roomyjob
-    
+
 .. image:: https://travis-ci.org/bwghughes/roomyjob.png?branch=master
         :target: https://travis-ci.org/bwghughes/roomyjob
 
@@ -16,6 +16,7 @@ Jobs package for roomy
 
 * Free software: BSD license
 * Documentation: http://roomyjob.rtfd.org.
+* Hi.
 
 Features
 --------
