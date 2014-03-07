@@ -9,11 +9,8 @@ try:
 except ImportError:
     from distutils.core import setup
 
-from pip.req import parse_requirements
-
-install_reqs = parse_requirements(os.path.join(os.curdir, 'requirements.txt'))
-reqs = [str(ir.req) for ir in install_reqs]
-
+requirements_lines = [line.strip() for line in open('requirements.txt').readlines()]
+install_requires = list(filter(None, requirements_lines))
 
 if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
@@ -35,7 +32,7 @@ setup(
     ],
     package_dir={'roomyjob': 'roomyjob'},
     include_package_data=True,
-    install_requires=reqs,
+    install_requires=install_requires,
     license="BSD",
     zip_safe=False,
     keywords='roomyjob',
