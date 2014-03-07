@@ -21,7 +21,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='roomyjob',
-    version='0.0.4',
+    version='0.0.5',
     description='Jobs package for roomy',
     long_description=readme + '\n\n' + history,
     author='Ben Hughes',
