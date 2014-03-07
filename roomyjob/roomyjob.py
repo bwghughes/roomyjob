@@ -39,10 +39,9 @@ def send_event(root_url, device_id, image_url, timeout=3):
     try:
         if not image_url.endswith('.jpg'):
             raise InvalidImageException
-        response = requests.post(url, data=json.dumps({'device': device_id,
-                                 'image_url': image_url,
-                                 'timestamp': time.time()}),
-                                 timeout=timeout, headers=HEADERS)
+        response = requests.post(url, data=json.dumps({'image_url': image_url,
+                                                     'timestamp': time.time()}),
+                                               timeout=timeout, headers=HEADERS)
         return response
     except (InvalidImageException, requests.exceptions.Timeout,
             requests.exceptions.ConnectionError), e:
