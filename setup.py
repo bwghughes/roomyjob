@@ -3,7 +3,10 @@
 
 import os
 import sys
+from pip.req import parse_requirements
 
+install_reqs = parse_requirements('requirements.txt')
+reqs = [str(ir.req) for ir in install_reqs]
 
 try:
     from setuptools import setup
@@ -30,8 +33,7 @@ setup(
     ],
     package_dir={'roomyjob': 'roomyjob'},
     include_package_data=True,
-    install_requires=[
-    ],
+    install_requires=reqs,
     license="BSD",
     zip_safe=False,
     keywords='roomyjob',
