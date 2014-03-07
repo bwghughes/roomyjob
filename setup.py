@@ -11,7 +11,7 @@ except ImportError:
 
 from pip.req import parse_requirements
 
-install_reqs = parse_requirements('./requirements.txt')
+install_reqs = parse_requirements(os.path.join(os.curdir, 'requirements.txt'))
 reqs = [str(ir.req) for ir in install_reqs]
 
 
