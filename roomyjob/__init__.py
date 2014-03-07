@@ -22,7 +22,7 @@ Options:
 
 __author__ = 'Ben Hughes'
 __email__ = 'bwghughes@gmail.com'
-__version__ = '0.0.7'
+__version__ = '0.0.8'
 
 from roomyjob import send_heartbeat, send_event, InvalidImageException
 
