@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import time
 import json
+import socket
 import requests
 import logging
 logging.basicConfig()
@@ -12,12 +13,18 @@ HEADERS = {'Content-Type': 'application/json'}
 class InvalidImageException(Exception):
     pass
 
+def get_ipaddress():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("roomy.firebaseio.com", 443))
+    return s.getsockname()[0]
+
 
 def send_heartbeat(root_url, device_id=None, timeout=3):
     url = "{}/{}/last-seen.json".format(root_url, device_id)
     print "Sending heartbeat to {}".format(url)
     try:
-        response = requests.patch(url, data=json.dumps({'ts': time.time()}),
+        response = requests.patch(url, data=json.dumps({'ts': time.time(),
+                                                        'ip': get_ipaddress()}),
                                   timeout=timeout, headers=HEADERS)
         return response
     except (requests.exceptions.Timeout, requests.exceptions.ConnectionError),\

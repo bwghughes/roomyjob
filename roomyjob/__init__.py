@@ -12,6 +12,8 @@ Options:
                                     on
   -r --service-root=SERVICE_ROOT    Root URL to post data to
                                     [default: https://roomy.firebaseio.com/]
+  -n --name                         Device Name
+  -i --ip                           Device IP Address
   -u --url=URL                      URL of the uploaded image
   -t --timeout=SECONDS              Connection timeout
                                     [default: 3]
