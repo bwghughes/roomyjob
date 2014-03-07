@@ -3,15 +3,17 @@
 
 import os
 import sys
-from pip.req import parse_requirements
-
-install_reqs = parse_requirements('requirements.txt')
-reqs = [str(ir.req) for ir in install_reqs]
 
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
+
+from pip.req import parse_requirements
+
+install_reqs = parse_requirements('./requirements.txt')
+reqs = [str(ir.req) for ir in install_reqs]
+
 
 if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
